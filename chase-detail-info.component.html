@@ -1,0 +1,23 @@
+<div #containerBody class="chase-detail-info-container">
+  <div class="leftColumn">
+    <app-list-summary [summaryItems]="summaryItems"></app-list-summary>
+    <app-generic-border-template [header]="'Chase Gaps'" class="bold" *ngIf="chaseDetailState.hasGaps">
+      <div *ngFor="let item of gapCompliance; let i = index; trackBy: trackByIndex">
+        {{item.measureCode}} - 
+        {{item.numeratorName}} - 
+        <span [ngClass]="getStatusClass(item.status)">{{item.status}}</span>
+      </div>
+    </app-generic-border-template>
+    <app-document-request-artifact [documentRequests]="documentRequests" [addressUrlOfChase]="addressUrlOfChase"></app-document-request-artifact>
+    <member-chase-detail-info-current-pends></member-chase-detail-info-current-pends>
+    <member-chase-detail-info-pursuits [pursuitItems]="pursuitItems"></member-chase-detail-info-pursuits>
+    <div class="comments-header bold">LATEST COMMENT</div>
+    <app-comments [commentItems]="commentItems"></app-comments>
+    <member-chase-detail-info-chart></member-chase-detail-info-chart>
+  </div>
+  <div class="rightColumn">
+    <div class="header bold">CHASE TIMELINE</div>
+    <app-timeline [timelineItems]="timelineItems"></app-timeline>
+    <div class="showall-timeline" (click)="showTimelineDetails()">See All</div>
+  </div>
+</div>

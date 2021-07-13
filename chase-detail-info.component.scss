@@ -1,0 +1,67 @@
+@import "media-queries";
+@import "mixins";
+@import "placeholders";
+
+.chase-detail-info-container {
+  @extend %platform-container-no-border;
+  height:calc(100vh - 215px)
+}
+
+@include desktop-styles {
+  .leftColumn {
+    margin-right: $chase-detail-info-width;
+  }
+
+  .rightColumn {
+    position: absolute;
+    top: 0.5rem;
+    right: 0;
+    width: $chase-detail-info-width;
+  }
+}
+
+.comments-header {
+  color: $default-font-color;
+  text-transform: uppercase;
+  @include padding(1.5rem, null, 0.6rem, null);
+}
+
+.header {
+  color: $default-font-color;
+  text-transform: uppercase;
+  @include padding(1.5rem, null, 0.6rem, null);
+
+  @include desktop-styles {
+    padding-top: 0;
+  }
+}
+
+.showall-timeline {
+  margin-top: 2em;
+  text-align: center;
+  cursor: pointer;
+  color: $accent-brand-yellow;
+}
+
+:host {
+  .leftColumn {
+    ::ng-deep {
+      .docrequests-header {
+        color: $default-font-color;
+      }
+
+      .docrequests-container {
+        background-color: #ebf3fa;
+      }
+    }
+  }
+
+  .open-compliance {
+    color: $primary-brand-color;
+  }
+
+  .closed-compliance {
+    color: $success;
+  }
+
+}
